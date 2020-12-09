@@ -1,1 +1,3 @@
-export const isAuthenticated = () => false; //{....}
+export const isAuthenticated = () => {
+    return Boolean(localStorage.getItem('login'));
+}

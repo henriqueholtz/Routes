@@ -1,16 +1,20 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Route, Redirect } from 'react-router-dom';
+import { useHistory } from "react-router";
 
 
-const NotAuthenticated = () => {
+const NotAuthenticated = ({ ...rest }) => {
     const classes = useStyles();
+    let history = useHistory();
+
+    function RedirectLogin() {
+        history.push("/login");
+    }
 
     return (
         <div>
             <h1>Not Authenticated</h1>
-
-            <button className={classes.button} onClick={() => console.log('Go to login man!')}>
+            <button className={classes.button} onClick={() => RedirectLogin()} >
                 Go to Login
         </button>
         </div>
